@@ -9,8 +9,9 @@ public class defaultScene extends Scene {
 
     @Override
     public void start() {
-        for (int i = 0; i < 1; i++) {
-            Game.Instantiate(new defaultCube());
+        for (int i = 0; i < 13; i++) {
+            System.out.println(Game.getInstance().getSize().width);
+            Game.Instantiate(new defaultCube( (int)(Game.getInstance().getSize().width *  Math.random()),(int)(Game.getInstance().getSize().height *  Math.random())));
         }
     }
 }
