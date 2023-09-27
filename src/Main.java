@@ -1,20 +1,23 @@
-import Gava.Game;
 import Gava.Debug;
+import Gava.Game;
 public class Main {
     public static void main(String[] args) {
-        Game.getInstance().setSize(800,600);
-        Game.getInstance().addScene(new defaultScene());
-
+        Game g = Game.getInstance();
         Debug.setDebugOpt("fps",true);
         Debug.setDebugOpt("GameObjects",true);
-        Game.getInstance().initImageLibrary("src/Assets");
-        Game.getInstance().setCurrentScene(0);
 
-        Game.getInstance().setTitle("black bars");
-        Game.getInstance().setFps(120);
+        Debug.log("add scene");
+        g.addScene(new defaultScene());
 
+        Debug.log("set current scene");
+        g.setCurrentScene(0);
 
-        Game.getInstance().start();
+        Debug.log("init image library");
+        g.initImageLibrary("src/Assets/img");
+        g.setTitle("black bars");
+        g.setFps(120);
+
+        g.start();
 
     }
 

@@ -1,8 +1,6 @@
 import Gava.*;
-import Gava.DrawableComponents.DrawCircleComponent;
 import Gava.DrawableComponents.DrawRectComponent;
 import Gava.DrawableComponents.DrawSpriteComponent;
-import Gava.DrawableComponents.DrawTextComponent;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -20,6 +18,7 @@ public class defaultCube extends GameObject {
         this.addDrawableComponent(new DrawRectComponent(Color.red,this));
         this.addDrawableComponent(new DrawSpriteComponent("Logo.png",this));
         this.getTransform().setScale(new Vector2D(100,100));
+        SoundPlayer.playSound("src/Assets/sounds/jump.wav");
     }
     @Override
     public void update(double dt) {
@@ -49,6 +48,7 @@ public class defaultCube extends GameObject {
 
         if  (Input.isMousePressed(3)){
             destroy();
+
         }
 
         if(Input.isKeyPressed(KeyEvent.VK_Z)){
