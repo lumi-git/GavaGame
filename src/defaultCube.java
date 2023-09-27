@@ -21,12 +21,7 @@ public class defaultCube extends GameObject {
     }
     @Override
     public void update(double dt) {
-        if(Game.getInstance().getKeyListener().isKeyPressed(KeyEvent.VK_A)){
-            getTransform().setRotation(getTransform().getRotation()-0.01);
-        }
-        if(Game.getInstance().getKeyListener().isKeyPressed(KeyEvent.VK_E)){
-            getTransform().setRotation(getTransform().getRotation()+0.01);
-        }
+        getTransform().setRotation(getTransform().getRotation()-0.01);
 
         if(Game.getInstance().getKeyListener().isKeyPressed(KeyEvent.VK_Z)){
             getTransform().getPosition().y -=speed;
