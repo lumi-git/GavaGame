@@ -1,28 +1,31 @@
+import Gava.*;
+import Gava.DrawableComponents.DrawCircleComponent;
 import Gava.DrawableComponents.DrawRectComponent;
-import Gava.Game;
-import Gava.GameObject;
-import Gava.Vector2D;
-import Gava.Input;
+import Gava.DrawableComponents.DrawTextComponent;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class defaultCube extends GameObject {
     double speed = 2;
 
-    public defaultCube(int x, int y){
+    public defaultCube(Vector2D position){
 
-        this.getTransform().setPosition(new Vector2D(x,y));
+        this.getTransform().setPosition(position);
     }
 
     @Override
     public void start() {
         this.addDrawableComponent(new DrawRectComponent(Color.red,this));
-        this.getTransform().setScale(new Vector2D(100,100));
+        this.getTransform().setScale(new Vector2D(100,10));
     }
     @Override
     public void update(double dt) {
 
         smoothMove();
+        //rgb fade
+        getDrawableComponent(DrawRectComponent.class).setColor(Color.black);
+
     }
 
     private void preciseMove(){
@@ -32,11 +35,19 @@ public class defaultCube extends GameObject {
 
     private void smoothMove(){
         Vector2D mousePos = Input.getMousePosition();
-        Vector2D direction = mousePos.subtract(getTransform().getPosition()).normalize();
+        Vector2D direction = mousePos.subtract(getTransform().getCenteredPosition());
+
+        if(direction.y == 0)
+            direction.y=0.00000001;
+
+        if (direction.x == 0)
+            direction.x=0.00000001;
+
+        getTransform().setRotation( Math.atan2(direction.y,direction.x));
 
 
-        if (Input.isMousePressed(1) ){
-            getTransform().Move(direction,speed);
+        if  (Input.isMousePressed(3)){
+            destroy();
         }
 
         if(Input.isKeyPressed(KeyEvent.VK_Z)){
@@ -53,4 +64,8 @@ public class defaultCube extends GameObject {
         }
     }
 
+    @Override
+    public void end() {
+        Debug.log("destroyed");
+    }
 }
