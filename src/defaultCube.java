@@ -1,4 +1,6 @@
 import Gava.*;
+import Gava.DefaultComponent.KinematicComponent;
+
 import Gava.DrawableComponents.DrawRectComponent;
 import Gava.DrawableComponents.DrawSpriteComponent;
 
@@ -17,6 +19,9 @@ public class defaultCube extends GameObject {
     public void start() {
         this.addDrawableComponent(new DrawRectComponent(Color.red,this));
         this.addDrawableComponent(new DrawSpriteComponent("Logo.png",this));
+        KinematicComponent kc = new KinematicComponent(this);
+        kc.UseGravity(true);
+        this.addComponent(kc);
         this.getTransform().setScale(new Vector2D(100,100));
         SoundPlayer.playSound("src/Assets/sounds/jump.wav");
     }
