@@ -1,6 +1,7 @@
 import Gava.*;
 import Gava.DrawableComponents.DrawCircleComponent;
 import Gava.DrawableComponents.DrawRectComponent;
+import Gava.DrawableComponents.DrawSpriteComponent;
 import Gava.DrawableComponents.DrawTextComponent;
 
 import java.awt.*;
@@ -17,7 +18,8 @@ public class defaultCube extends GameObject {
     @Override
     public void start() {
         this.addDrawableComponent(new DrawRectComponent(Color.red,this));
-        this.getTransform().setScale(new Vector2D(100,10));
+        this.addDrawableComponent(new DrawSpriteComponent("Logo.png",this));
+        this.getTransform().setScale(new Vector2D(100,100));
     }
     @Override
     public void update(double dt) {

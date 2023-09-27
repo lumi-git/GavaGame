@@ -7,8 +7,8 @@ public class defaultScene extends Scene {
 
     @Override
     public void start() {
-        int rows = 1;
-        int cols = 1;
+        int rows = 100;
+        int cols = 10;
         int spaces = 2;
         int offsetx = Game.getInstance().getWidth() / 3;
         int offsety = Game.getInstance().getHeight() / 3;
