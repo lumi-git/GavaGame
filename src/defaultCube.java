@@ -23,7 +23,6 @@ public class defaultCube extends GameObject {
     public void update(double dt) {
 
         smoothMove();
-        //rgb fade
         getDrawableComponent(DrawRectComponent.class).setColor(Color.black);
 
     }
@@ -51,7 +50,7 @@ public class defaultCube extends GameObject {
         }
 
         if(Input.isKeyPressed(KeyEvent.VK_Z)){
-
+            getTransform().getPosition().y -=speed;
         }
         if(Input.isKeyPressed(KeyEvent.VK_S)){
             getTransform().getPosition().y +=speed;
