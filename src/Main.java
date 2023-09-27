@@ -1,5 +1,7 @@
 import Gava.Debug;
 import Gava.Game;
+import Gava.Scene;
+
 public class Main {
     public static void main(String[] args) {
         Game g = Game.getInstance();
@@ -7,17 +9,18 @@ public class Main {
         Debug.setDebugOpt("GameObjects",true);
 
         Debug.log("add scene");
-        g.addScene(new defaultScene());
-
-        Debug.log("set current scene");
-        g.setCurrentScene(0);
+        Scene s = new defaultScene();
+        s.setMainScene();
+        g.addScene(s);
 
         Debug.log("init image library");
         g.initImageLibrary("src/Assets/img");
-        g.setTitle("black bars");
+        g.setTitle("Demo game Gava");
         g.setFps(120);
 
         g.start();
+
+
 
     }
 

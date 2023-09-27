@@ -1,12 +1,10 @@
-import Gava.Game;
-import Gava.Input;
-import Gava.Scene;
-import Gava.Vector2D;
+import Gava.*;
 
 public class defaultScene extends Scene {
 
     @Override
     public void start() {
+        Debug.log("start the main scene");
         int rows = 0;
         int cols = 0;
         int spaces = 2;
