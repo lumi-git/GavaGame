@@ -2,6 +2,8 @@ import Gava.Debug;
 import Gava.Game;
 import Gava.Scene;
 
+import java.awt.*;
+
 public class Main {
     public static void main(String[] args) {
         Game g = Game.getInstance();
@@ -18,10 +20,8 @@ public class Main {
         g.setTitle("Demo game Gava");
         g.setFps(120);
 
+
         g.start();
-
-
-
     }
 
 }

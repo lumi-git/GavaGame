@@ -1,10 +1,13 @@
 import Gava.*;
 
+import java.awt.*;
+
 public class defaultScene extends Scene {
 
     @Override
     public void start() {
         Debug.log("start the main scene");
+        Game.getInstance().setBackground(new Color(0x2C582A));
         int rows = 0;
         int cols = 0;
         int spaces = 2;
@@ -21,7 +24,7 @@ public class defaultScene extends Scene {
 
     @Override
     public void update(double dt) {
-        if (Input.isMousePressed(1)){
+        if (Input.isMouseClicked(1)){
             Game.Instantiate(new defaultCube(Input.getMousePosition()));
         }
     }
