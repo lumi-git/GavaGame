@@ -9,14 +9,15 @@ public class Main {
         Game g = Game.getInstance();
         Debug.setDebugOpt("fps",true);
         Debug.setDebugOpt("GameObjects",true);
+        //Debug.setDebugOpt("collisionLayer",true);
 
-        Debug.log("add scene");
+
         Scene s = new defaultScene();
         s.setMainScene();
         g.addScene(s);
 
-        Debug.log("init image library");
-        g.initImageLibrary("src/Assets/img");
+
+        //g.initImageLibrary("src/Assets/img");
         g.setTitle("Demo game Gava");
         g.setFps(120);
 
