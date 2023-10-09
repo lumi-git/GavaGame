@@ -1,16 +1,8 @@
 import Gava.*;
-import Gava.DefaultComponent.CollideBoxComponent;
-import Gava.DefaultComponent.KinematicComponent;
-
 import Gava.DefaultComponent.RigidBody;
-import Gava.DefaultGameObjects.CameraObject;
 import Gava.DefaultGameObjects.TextGameObject;
 import Gava.DrawableComponents.DrawRectComponent;
-import Gava.DrawableComponents.DrawSpriteComponent;
-
-
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.Objects;
 
 public class defaultCube extends GameObject {
@@ -27,15 +19,8 @@ public class defaultCube extends GameObject {
         addComponent(new RigidBody(this));
         this.addDrawableComponent(new DrawRectComponent(Color.red,this));
         //this.addDrawableComponent(new DrawSpriteComponent("Logo.png",this));
-        KinematicComponent kc = new KinematicComponent(this);
-        kc.UseGravity(true);
-        //this.addComponent(kc);
         this.getModificationTransform().setScale(new Vector2D(Gava.utility.MathUtils.randint(100,100),Gava.utility.MathUtils.randint(100,100)));
         //SoundPlayer.playSound("src/Assets/sounds/jump.wav");
-
-        // probleme avec les start des objets, ici le parent de la light n'est pas encore instancié quand on appele start de la light, pas bien
-        // surement besoin de faire un start global pour tous les objets en prenant en compte les relations parents
-
         text = new TextGameObject();
         text.setColor(Color.white);
         addChild(text);

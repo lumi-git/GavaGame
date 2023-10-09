@@ -1,14 +1,11 @@
 import Gava.*;
-import Gava.DefaultGameObjects.CameraObject;
 import Gava.DefaultGameObjects.LineObject;
 import Gava.DefaultGameObjects.VoidGameObject;
-
 import java.awt.*;
 
 public class defaultScene extends Scene {
     @Override
     public void start() {
-
         Game.getInstance().getFrame().setBackground(Color.red);
         int rows = 10;
         int cols = 10;
@@ -24,11 +21,8 @@ public class defaultScene extends Scene {
                 Game.Instantiate(dc);
             }
         }
-
         player p = new player();
-
         Game.Instantiate(new LineObject(p,new VoidGameObject()));
-
         Game.Instantiate(p);
 
     }

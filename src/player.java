@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class player extends Gava.GameObject{
-    double speed = 5;
+    double speed = 100;
     int points=0;
     TextGameObject text = new TextGameObject();
     public player(){
