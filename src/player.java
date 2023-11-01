@@ -1,16 +1,14 @@
-import Gava.Debug;
+import Gava.*;
+import Gava.DefaultComponent.RigidBody;
 import Gava.DefaultGameObjects.CameraObject;
 import Gava.DefaultGameObjects.TextGameObject;
 import Gava.DrawableComponents.DrawRectComponent;
-import Gava.Game;
-import Gava.GameObject;
-import Gava.Input;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class player extends Gava.GameObject{
-    double speed = 100;
+    double speed = 1;
     int points=0;
     TextGameObject text = new TextGameObject();
     public player(){
@@ -29,15 +27,18 @@ public class player extends Gava.GameObject{
     }
 
     @Override
-    public void onCollisionStay(GameObject other) {
-        getDrawableComponent(DrawRectComponent.class).setColor(Color.blue);
+    public void onCollisionStay(CollisionInformation info) {
+        if (info.getOther().getName().equals("defaultCube")){
+            getDrawableComponent(DrawRectComponent.class).setColor(Color.blue);
+        }
+
     }
 
     @Override
     public void update(double dt){
         text.setText("Points : "+points);
         getDrawableComponent(DrawRectComponent.class).setColor(Color.green);
-        getModificationTransform().setRotation(getModificationTransform().getRotation()+0.1);
+        //getModificationTransform().setRotation(getModificationTransform().getRotation()+0.1);
     }
 
     public void addPoint(int i){

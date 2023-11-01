@@ -9,7 +9,7 @@ public class Main {
         Game g = Game.getInstance();
         Debug.setDebugOpt("fps",true);
         Debug.setDebugOpt("GameObjects",true);
-        Debug.setDebugOpt("collisionLayer",true);
+        //Debug.setDebugOpt("collisionLayer",true);
 
         Scene s = new defaultScene();
         s.setMainScene();
